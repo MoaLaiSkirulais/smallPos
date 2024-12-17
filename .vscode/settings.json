@@ -1,24 +1,7 @@
 {
 	// The following will hide the js and map files in the editor
 	"files.exclude": {
-		"frontEnd/.angular": true,
-		"frontEnd/node_modules": true,
-		"backEnd/node_modules": true,
-		"**/*.gitignore": true,
-		"**/*.editorconfig": true,
-
-		"frontEnd/dist": true,
-		"lab": true,
-		"frontEnd/public": true,
-		"frontEnd/.vscode": true,
-		"frontEnd/README.md": true,
-		".vscode": true,
-		"**/*spec.ts": true,
-		"**/*spec.json": true,
-		"**/*package-lock*.json": true,
-		"**/*.lnk": true,
-		"**/*tsconfig.json": true,
-		"**/*tsconfig.app.json": true,
+		
 
 	},
 	"editor.fontFamily": "Consolas",
