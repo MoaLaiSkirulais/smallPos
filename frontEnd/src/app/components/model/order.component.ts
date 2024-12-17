@@ -14,8 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
 	selector: 'app-order',
 	standalone: true,
 	imports: [MatSlideToggleModule, MatButton, MatCardModule, CurrencyPipe, MatIconModule],
-	templateUrl: './order.component.html',
-	styleUrl: './order.component.css'
+	templateUrl: '../layout/order.component.html',
+	styleUrl: '../style/order.component.css'
 })
 
 export class OrderComponent implements OnInit {

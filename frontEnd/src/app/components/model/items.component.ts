@@ -15,8 +15,8 @@ import { MutableLiveData } from '@martinporto/mutable-live-data';
 	standalone: true,
 	imports: [MatGridListModule, MatTableModule,  MatIconModule, CurrencyPipe],
 	animations: [rowsAnimation, fadeOut, blub ],
-	templateUrl: './items.component.html',
-	styleUrl: './items.component.css',
+	templateUrl: '../layout/items.component.html',
+	styleUrl: '../style/items.component.css',
 })
 
 export class ItemsComponent implements OnInit{

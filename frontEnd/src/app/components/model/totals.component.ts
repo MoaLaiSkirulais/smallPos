@@ -11,8 +11,8 @@ import { Totals } from '../../model/Totals';
 	selector: 'app-totals',
 	standalone: true,
 	imports: [MatSlideToggleModule,  MatCardModule, CurrencyPipe, MatTableModule],
-	templateUrl: './totals.component.html',
-	styleUrl: './totals.component.css'
+	templateUrl: '../layout/totals.component.html',
+	styleUrl: '../style/totals.component.css'
 })
 
 export class TotalsComponent {

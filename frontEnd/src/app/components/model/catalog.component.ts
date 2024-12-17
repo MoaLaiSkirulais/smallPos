@@ -15,8 +15,8 @@ import { A } from '@angular/cdk/keycodes';
 	selector: 'app-catalog',
 	standalone: true,
 	imports: [MatGridListModule, MatTableModule,  MatIconModule, CurrencyPipe, MatSortModule],
-	templateUrl: './catalog.component.html',
-	styleUrl: './catalog.component.css'
+	templateUrl: '../layout/catalog.component.html',
+	styleUrl: '../style/catalog.component.css'
 })
 
 export class CatalogComponent {

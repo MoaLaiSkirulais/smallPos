@@ -1,9 +1,9 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, Routes } from '@angular/router';
 import { provideHttpClient } from "@angular/common/http";
-import { AppComponent } from "./components/app/app.component";
+import { AppComponent } from "./components/model/app.component";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { ItemsComponent } from './components/items/items.component';
+import { ItemsComponent } from './components/model/items.component';
 import { routes } from './app.routes';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 

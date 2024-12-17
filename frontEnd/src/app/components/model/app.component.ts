@@ -43,8 +43,8 @@ export interface Tile {
 		RouterModule,
 		
 	],
-	templateUrl: './app.component.html',
-	styleUrl: './app.component.css'
+	templateUrl: '../layout/app.component.html',
+	styleUrl: '../style/app.component.css'
 })
 
 export class AppComponent implements OnInit {
