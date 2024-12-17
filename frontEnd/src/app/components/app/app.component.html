@@ -1,0 +1,85 @@
+<mat-drawer-container class="example-container" autosize>
+
+	<mat-drawer #drawer class="example-sidenav" mode="over">
+
+		<mat-list>
+			<!-- <mat-list-item>
+				<mat-slide-toggle [(ngModel)]="company.paperReduction" labelPosition="before"
+					(click)="setup()">Reduccion de papel
+				</mat-slide-toggle>
+			</mat-list-item>
+
+			<mat-list-item>
+				<mat-slide-toggle [(ngModel)]="company.eInvoice" labelPosition="before"
+					(click)="setup()">Factura Electronica
+				</mat-slide-toggle>
+			</mat-list-item> -->
+			<mat-list-item></mat-list-item>
+			<mat-list-item>
+				<span style="font-family: Roboto, sans-serif; font-size: 14px; font-weight:500;">Modulos</span>
+			</mat-list-item>
+			<mat-list-item>
+				<button mat-raised-button routerLink="/home/sales">
+					<mat-icon>point_of_sale</mat-icon>
+					Vender
+				</button>
+			</mat-list-item>
+
+			<mat-list-item>
+				<button mat-raised-button routerLink="/home/summary">
+					<mat-icon>query_stats</mat-icon>
+					Estadisticas
+				</button>
+			</mat-list-item>
+
+			<mat-list-item></mat-list-item>
+			<mat-list-item style="border-top: 1px solid rgb(49, 180, 212);">
+				<span style="font-family: Roboto, sans-serif; font-size: 14px; font-weight:500;">Ahorro de papel</span>
+			</mat-list-item>
+
+			<mat-list-item>
+				<button mat-raised-button routerLink="/home/summary">
+					<mat-icon>toggle_on</mat-icon>
+					Activar reduccion de papel
+				</button>
+			</mat-list-item>
+
+			<mat-list-item>
+				<button mat-raised-button routerLink="/home/summary">
+					<mat-icon>toggle_off</mat-icon>
+					Desactivar reduccion de papel
+				</button>
+			</mat-list-item>
+
+			<mat-list-item></mat-list-item>
+			<mat-list-item style="border-top: 1px solid rgb(49, 180, 212);">
+				<span style="font-family: Roboto, sans-serif; font-size: 14px; font-weight:500;">Factura Electronica</span>
+			</mat-list-item>
+
+			<mat-list-item>
+				<button mat-raised-button routerLink="/home/summary">
+					<mat-icon>toggle_off</mat-icon>
+					Activar
+				</button>
+			</mat-list-item>
+		</mat-list>
+	</mat-drawer>
+
+	<mat-drawer-content>
+		<mat-toolbar class="header">
+			<button mat-icon-button (click)="drawer.toggle()" class="example-icon">
+				<mat-icon>menu</mat-icon>
+			</button>
+			<span>Small Pos</span>
+			<span class="example-spacer"></span>
+
+			<button mat-icon-button class="example-icon" (click)="openFullscreen()">
+				<mat-icon>share</mat-icon>
+			</button>
+		</mat-toolbar>
+
+		<router-outlet></router-outlet>
+
+	</mat-drawer-content>
+
+</mat-drawer-container>

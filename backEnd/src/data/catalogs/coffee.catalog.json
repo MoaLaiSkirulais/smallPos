@@ -1,0 +1,176 @@
+{
+	"store_id": 11,
+	"store_name": "Cafeteria",
+	"store_type": "Price Check",
+	"store_avatar": "images/logo/logo.png",
+	"categories": [
+		{
+			"name": "Cafeteria",
+			"items": [
+				{
+					"image": "7501954910436.png",
+					"name": "Espresso",
+					"description": "2 partes de café blend",
+					"price": 3.00,
+					"sku": "7501954910436"
+				}, {
+					"image": "7501954910429.png",
+					"name": "Macchiato",
+					"description": "2 partes de café + leche",
+					"price": 3.20,
+					"sku": "7501954910429"
+				}, {
+					"image": "7501954910443.png",
+					"name": "Cortado",
+					"description": "2 partes de café + 2 partes de leche",
+					"price": 2.00,
+					"sku": "7501954910443"
+				}, {
+					"image": "7502271154152.png",
+					"name": "Cappuccino",
+					"description": "2 partes de café + 4 partes de leche",
+					"price": 2.50,
+					"sku": "7502271154152"
+				}, {
+					"image": "7501954909683.png",
+					"name": "Latte",
+					"description": "2 partes de café + 8 partes de leche",
+					"price": 3.00,
+					"sku": "7501954909683"
+				}, {
+					"image": "7501954907436.png",
+					"name": "Americano",
+					"description": "2 partes de café + agua",
+					"price": 2.80,
+					"sku": "7501954907436"
+				}, {
+					"image": "7501954909652.png",
+					"name": "Drip Coffee",
+					"description": "11 partes de café del día",
+					"price": 3.00,
+					"sku": "7501954909652"
+				}, {
+					"image": "7501954909669.png",
+					"name": "French Press",
+					"description": "Selección de café premium",
+					"price": 3.00,
+					"sku": "7501954909669"
+				}				
+			]
+		},
+		{
+			"name": "Tortas",
+			"items": [
+				{
+					"image": "7501954906064.png",
+					"name": "Torta del día",
+					"description": "La selección variará diariamente",
+					"price": 4.00,
+					"sku": "7501954906064"
+				}, {
+					"image": "7501954906071.png",
+					"name": "Torta de Queso",
+					"description": "La selección variará diariamente",
+					"price": 16.00,
+					"sku": "7501954906071"
+				}, {
+					"image": "7501954906088.png",
+					"name": "Pastel de Espinacas",
+					"description": "La selección variará diariamente",
+					"price": 4.00,
+					"sku": "7501954906088"
+				}, {
+					"image": "7501954909515.png",
+					"name": "Pastel de Manzanas",
+					"description": "La selección variará diariamente",
+					"price": 4.00,
+					"sku": "7501954909515"
+				}, {
+					"image": "7501954907344.png",
+					"name": "Torta Danesa",
+					"description": "La selección variará diariamente",
+					"price": 4.00,
+					"sku": "7501954907344"
+				}, {
+					"image": "7501954910450.png",
+					"name": "Muffins",
+					"description": "La selección variará diariamente",
+					"price": 3.00,
+					"sku": "7501954910450"
+				}, {
+					"image": "7501954907108.png",
+					"name": "Croisant Dulce",
+					"description": "La selección variará diariamente",
+					"price": 4.00,
+					"sku": "7501954907108"
+				}, {
+					"image": "7501954907351.png",
+					"name": "Brownies",
+					"description": "La selección variará diariamente",
+					"price": 12.00,
+					"sku": "7501954907351"
+				}
+			]
+		},
+		{
+			"name": "Ensaladas",
+			"items": [
+				{
+					"image": "7502271151564.png",
+					"name": "Ensalada Caesar",
+					"description": "Tocino local, queso parmesano en fetas, granos de maíz crujientes",
+					"price": 4.50,
+					"sku": "7502271151564"
+				}, {
+					"image": "7502271151588.png",
+					"name": "Ensalada Cobb",
+					"description": "Tocino local, queso azul y queso crumble",
+					"price": 4.50,
+					"sku": "7502271151588"
+				}, {
+					"image": "7501954907085.png",
+					"name": "Ensalada Capri",
+					"description": "Lechuga, olivas premium y tomates",
+					"price": 4.50,
+					"sku": "7501954907085"
+				}, {
+					"image": "7501954908303.png",
+					"name": "Ensalada Ghail Kale",
+					"description": "Col rizada, migajas de queso de cabra, mandarinas",
+					"price": 4.50,
+					"sku": "7501954908303"
+				}
+			]
+		},
+		{
+			"name": "Bocadillos",
+			"items": [
+				{
+					"image": "7502271150383.png",
+					"name": "Queso a la parrilla",
+					"description": "Americano, chedar, queso, pimiento rojo asado",
+					"price": 4.50,
+					"sku": "7502271150383"
+				}, {
+					"image": "7502271151830.png",
+					"name": "Medianoche",
+					"description": "Porchetta, prociuto cotto, queso suizo",
+					"price": 4.00,
+					"sku": "7502271151830"
+				}, {
+					"image": "7502271151847.png",
+					"name": "Grand Sandwich",
+					"description": "Mortadella, salami, provolone, pimientos de calabria",
+					"price": 3.50,
+					"sku": "7502271151847"
+				}, {
+					"image": "7502271150376.png",
+					"name": "Empanadas",
+					"description": "Pollo, carne y espinacas",
+					"price": 3.00,
+					"sku": "7502271150376"
+				}
+			]
+		}
+	]
+}

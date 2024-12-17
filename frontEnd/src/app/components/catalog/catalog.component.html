@@ -1,0 +1,41 @@
+<div class="example-container">
+	<div class="table-container mat-elevation-z8">
+		<table mat-table [dataSource]="dataService.getCatalog().getProducts()" 
+		matSort matSortActive="name" matSortDisableClear matSortDirection="desc"
+		>
+
+			<ng-container matColumnDef="name">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Product</th>
+				<td mat-cell *matCellDef="let product">
+					{{product.getName()}}
+				</td>
+			</ng-container>
+
+			<ng-container matColumnDef="description">
+				<th mat-header-cell *matHeaderCellDef>Detail</th>
+				<td mat-cell *matCellDef="let product">
+					{{product.getDescription()}}
+				</td>
+			</ng-container>
+
+			<ng-container matColumnDef="price">
+				<th mat-header-cell *matHeaderCellDef>Price</th>
+				<td mat-cell *matCellDef="let product">
+					{{product.getPrice() | currency}}
+				</td>
+			</ng-container>
+
+			<ng-container matColumnDef="add">
+				<th mat-header-cell *matHeaderCellDef></th>
+				<td mat-cell *matCellDef="let product">
+					<button mat-fab (click)="addItem(product.getSku())">
+						<mat-icon>add</mat-icon>
+					</button>
+				</td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="displayedColumns sticky:true" ></tr>
+			<tr mat-row (click)="clickHandler(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+		</table>
+	</div>
+</div>

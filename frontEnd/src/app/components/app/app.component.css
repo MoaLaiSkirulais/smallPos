@@ -1,0 +1,45 @@
+.example-spacer {
+	flex: 1 1 auto;
+}
+
+.example-container {
+	background: #eee;
+	height:100%; 
+	border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background-color: #1dc7f1;
+}
+
+.example-sidenav-content {
+	display: flex;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.example-sidenav {
+	padding: 20px;
+	background-color: #1dc7f1;
+	border-radius: 0px;
+	border-right: 1px solid black;
+}
+
+#drawer > button{
+	width: 100%;
+}
+
+
+mat-list-item > button{
+
+	padding: 20px;
+	margin: 6px;
+	border-radius: 8px;
+
+}

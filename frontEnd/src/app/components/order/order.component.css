@@ -1,0 +1,22 @@
+.example-card-footer {
+	padding: 16px;
+}
+
+mat-card-actions > button{
+
+	padding: 10px;
+	margin: 6px;
+	border-radius: 8px;
+
+}
+
+mat-card {
+
+	border-radius: 0px;
+
+}
+
+.table-container {
+	overflow: auto;
+	max-width:  500px;
+}

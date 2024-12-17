@@ -1,0 +1,182 @@
+{
+	"store_id": 8,
+	"store_name": "Pos",
+	"store_type": "pos",
+	"store_avatar": "images/logo/logo.png",
+	"categories": [
+		{
+			"name": "Barritas",
+			"items": [
+				{
+					"image": "7501954910436.png",
+					"name": "Barrita Integral Fresa 60gr",
+					"price": 12.00,
+					"sku": "7501954910436"
+				}, {
+					"image": "7501954910429.png",
+					"name": "Barrita Integral Arandano 60gr",
+					"price": 12.00,
+					"sku": "7501954910429"
+				}, {
+					"image": "7501954910443.png",
+					"name": "Barrita Integral Pina 60gr",
+					"price": 12.00,
+					"sku": "7501954910443"
+				}, {
+					"image": "7502271154152.png",
+					"name": "Barra granola arroz frutos secos 35g",
+					"price": 12.00,
+					"sku": "7502271154152"
+				}, {
+					"image": "7501954909683.png",
+					"name": "Barra granola arroz yogurt 35g",
+					"price": 12.00,
+					"sku": "7501954909683"
+				}, {
+					"image": "7501954907436.png",
+					"name": "Barrita Integral nuez, linaza y almendra 40gr",
+					"price": 12.00,
+					"sku": "7501954907436"
+				}, {
+					"image": "7501954909652.png",
+					"name": "Barra granola chispas de chocolate 24g",
+					"price": 12.00,
+					"sku": "7501954909652"
+				}, {
+					"image": "7501954909669.png",
+					"name": "Barra granola arroz chocolate 31g",
+					"price": 12.00,
+					"sku": "7501954909669"
+				}				
+			]
+		},
+		{
+			"name": "Integrales",
+			"items": [
+				{
+					"image": "7501954906064.png",
+					"name": "Mezcla de Frutos secos Trail Mix Raisin 65gr",
+					"price": 17.00,
+					"sku": "7501954906064"
+				}, {
+					"image": "7501954906071.png",
+					"name": "Mezcla de frutos secos Trail Mix Tropical 65gr",
+					"price": 14.00,
+					"sku": "7501954906071"
+				}, {
+					"image": "7501954906088.png",
+					"name": "Mezcla de frutos secos y chocolate Trail Mix",
+					"price": 15.00,
+					"sku": "7501954906088"
+				}, {
+					"image": "7501954909515.png",
+					"name": "Rueditas integrales Arandano 120gr",
+					"price": 15.00,
+					"sku": "7501954909515"
+				}, {
+					"image": "7501954907344.png",
+					"name": "Rueditas integrales fresa 120gr",
+					"price": 20.00,
+					"sku": "7501954907344"
+				}, {
+					"image": "7501954910450.png",
+					"name": "Rueditas integrales pina 120gr",
+					"price": 12.00,
+					"sku": "7501954910450"
+				}, {
+					"image": "7501954907108.png",
+					"name": "Pistache Tostado con Sal 32g",
+					"price": 15.00,
+					"sku": "7501954907108"
+				}, {
+					"image": "7501954907351.png",
+					"name": "Panecillo Integral de avena con arandano 110gr",
+					"price": 12.00,
+					"sku": "7501954907351"
+				}
+			]
+		},
+		{
+			"name": "Galletas",
+			"items": [
+				{
+					"image": "7502271151564.png",
+					"name": "Galletas Sonrillenas 41gr",
+					"price": 11.00,
+					"sku": "7502271151564"
+				}, {
+					"image": "7502271151588.png",
+					"name": "Galletas Chocoxtreme 29gr",
+					"price": 11.00,
+					"sku": "7502271151588"
+				}, {
+					"image": "7501954907085.png",
+					"name": "Galletas rellenas fresa 200g",
+					"price": 11.00,
+					"sku": "7501954907085"
+				}, {
+					"image": "7501954908303.png",
+					"name": "Galletitas Marias 160gr",
+					"price": 11.00,
+					"sku": "7501954908303"
+				}, {
+					"image": "7502271150147.png",
+					"name": "Galletas Saladas Craker 95gr",
+					"price": 11.00,
+					"sku": "7502271150147"
+				}, {
+					"image": "7501954907337.png",
+					"name": "Polvoron Nuez y Avena 70gr",
+					"price": 11.00,
+					"sku": "7501954907337"
+				}, {
+					"image": "7501954907320.png",
+					"name": "Polvoron avena 70gr Snak",
+					"price": 10.00,
+					"sku": "7501954907320"
+				}
+			]
+		},
+		{
+			"name": "Snacks",
+			"items": [
+				{
+					"image": "7502271150383.png",
+					"name": "Gomitas de Ositos Snak 60g",
+					"price": 10.00,
+					"sku": "7502271150383"
+				}, {
+					"image": "7502271151830.png",
+					"name": "Gomitas Enchiladas Mango 60g",
+					"price": 15.50,
+					"sku": "7502271151830"
+				}, {
+					"image": "7502271151847.png",
+					"name": "Gomitas Enchiladas Sandia 60g",
+					"price": 16.70,
+					"sku": "7502271151847"
+				}, {
+					"image": "7502271150376.png",
+					"name": "Gomitas Viboritas Varias sabores 60g",
+					"price": 18.50,
+					"sku": "7502271150376"
+				}, {
+					"image": "7501954900925.png",
+					"name": "Palomitas Natural Snak 85gr",
+					"price": 15.00,
+					"sku": "7501954900925"
+				}, {
+					"image": "7501954907023.png",
+					"name": "Papas fritas con Sal 150gr",
+					"price": 12.00,
+					"sku": "7501954907023"
+				}, {
+					"image": "7501954907030.png",
+					"name": "Papas fritas Adobadas 150g",
+					"price": 12.00,
+					"sku": "7501954907030"
+				}
+			]
+		}
+	]
+}
