@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Order } from './model/Order';
 import { Catalog } from './model/Catalog';
 import { Company } from "./model/Company";
-import { Orders } from './model/Orders';
+import { OrdersManager } from './model/OrdersManager';
 import { Totals } from './model/Totals';
 import { MutableLiveData } from '@martinporto/mutable-live-data';
 
@@ -11,12 +11,12 @@ import { MutableLiveData } from '@martinporto/mutable-live-data';
 	providedIn: 'root'
 })
 
-export class DataService {
+export class BackendService {
 
 	private order: MutableLiveData<Order>;
 	private catalog: Catalog;
 	private company: Company;
-	private orders: MutableLiveData<Orders>;
+	private orders: MutableLiveData<OrdersManager>;
 	private totals: Totals;
 
 	constructor(private http: HttpClient) {
@@ -26,7 +26,7 @@ export class DataService {
 
 		this.catalog = new Catalog(this.http);
 		this.company = new Company(this.http);
-		this.orders = new MutableLiveData(Orders);
+		this.orders = new MutableLiveData(OrdersManager);
 		this.totals = new Totals(this.http);
 		this.order.create();
 	}
@@ -43,17 +43,17 @@ export class DataService {
 	public getOrder(): MutableLiveData<Order> {
 		return this.order;
 	}
-	
+
 	// public getOrder2(): Order {
 	// 	return this.order;
 	// }
-	
-	public getOrders(): MutableLiveData<Orders> {
+
+	public getOrders(): MutableLiveData<OrdersManager> {
 		return this.orders;
 	}
 
-	public reloadOrders():any {
-		this.orders.getValue().refresh().subscribe(()=>{
+	public reloadOrders(): any {
+		this.orders.getValue().reload().subscribe(() => {
 			this.orders.postValue(this.orders.getValue());
 		});
 	}
@@ -68,6 +68,31 @@ export class DataService {
 
 	public getTotals(): Totals {
 		return this.totals;
+	}
+
+	public payOrder(): any {
+
+		this.order.getValue().pay()
+			.subscribe(e => {
+				this.order.postValue(this.order.getValue());
+				this.reloadOrders();
+			});
+	}
+
+	public createOrder(): any {
+
+		var order: Order = this.order.getValue();
+		order.create().subscribe(e => { this.order.postValue(order) });
+	}
+
+	// public getOrder(): any {
+	// 	this.order.getValue();
+	// }
+
+	public deleteItem(sku: number): any {
+
+		var order: Order = this.order.getValue();
+		order.deleteItem(sku).subscribe(e => { this.order.postValue(order) });
 	}
 
 }

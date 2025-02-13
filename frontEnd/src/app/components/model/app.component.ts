@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { Company } from '../../model/Company';
-import { DataService } from '../../DataService';
+import { BackendService } from '../../BackendService';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
@@ -51,11 +51,11 @@ export class AppComponent implements OnInit {
 
 	title = 'Small Pos';
 	showFiller = false;
-	dataService: DataService
+	dataService: BackendService
 	company: Company;
 	@ViewChild('drawer') drawer: MatSidenav;
 
-	constructor(@Inject(DOCUMENT) private document: any, public dataService1: DataService, router: Router) {
+	constructor(@Inject(DOCUMENT) private document: any, public dataService1: BackendService, router: Router) {
 
 		this.company = dataService1.getCompany();
 

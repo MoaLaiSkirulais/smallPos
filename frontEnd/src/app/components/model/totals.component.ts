@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { DataService } from '../../DataService';
+import { BackendService } from '../../BackendService';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { CurrencyPipe } from '@angular/common';
@@ -19,9 +19,9 @@ export class TotalsComponent {
 
 	displayedColumns: string[] = ['date', 'total'];
 	@ViewChild(MatTable) table: MatTable<Totals>;
-	public dataService: DataService
+	public dataService: BackendService
 
-	constructor(private http: HttpClient, private dataService1: DataService) {
+	constructor(private http: HttpClient, private dataService1: BackendService) {
 		this.dataService = dataService1;
 	};
 

@@ -1,7 +1,7 @@
-import { Component,OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Order } from '../../model/Order';
-import { DataService } from '../../DataService';
+import { BackendService } from '../../BackendService';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -18,47 +18,26 @@ import { MatIconModule } from '@angular/material/icon';
 	styleUrl: '../style/order.component.css'
 })
 
-export class OrderComponent implements OnInit {
+export class OrderComponent {
 
-	public order: Order;
-	myOrder$: Observable<Order>;
-	dataService: DataService;
+	backendService: BackendService;
 
-	constructor(private http: HttpClient, private ds: DataService) {
-
-		this.dataService = ds;
-		this.dataService.getOrder().observe((order)=>{
-			this.order = order;
-		})
+	constructor(private http: HttpClient, private paramBackendService: BackendService) {
+		this.backendService = paramBackendService;
 	};
 
-	ngOnInit() {
-		this.dataService.getOrder().observe((order)=>{
-			this.order = order;
-		})
-	}
-
 	public getOrder(): Order {
-		return this.dataService.getOrder().getValue();
+		return this.backendService.getOrder().getValue();
 	}
 
 	public createOrder(): any {
-
-		this.dataService.getOrder().getValue().create()
-			.subscribe(e => {
-				this.dataService.getOrder().postValue(this.dataService.getOrder().getValue());
-			});
+		this.backendService.createOrder();
 	}
 
 	public payOrder(): any {
 
-		this.dataService.getOrder().getValue().pay()
-		.subscribe(e => {
-			this.createOrder();
-			this.dataService.getOrder().postValue(this.dataService.getOrder().getValue());
-			this.dataService.reloadOrders();
-		});
-
+		this.backendService.payOrder();
+		this.createOrder();
 	}
 
 }

@@ -2,7 +2,7 @@ import { Component, ViewChild, ChangeDetectorRef, LOCALE_ID } from '@angular/cor
 import { Catalog } from '../../model/Catalog';
 import { HttpClient } from "@angular/common/http";
 import { Product } from '../../model/Product';
-import { DataService } from '../../DataService';
+import { BackendService } from '../../BackendService';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTable, MatTableModule } from '@angular/material/table';
 import { MatButton } from '@angular/material/button';
@@ -25,9 +25,9 @@ export class CatalogComponent {
 	displayedColumns: string[] = ['name', 'price', 'add'];
 	@ViewChild(MatTable) table: MatTable<Product>;
 	@ViewChild(MatSort) sort: MatSort;
-	public dataService: DataService
+	public dataService: BackendService
 
-	constructor(private http: HttpClient, public dataService1: DataService, private changeDetectorRefs: ChangeDetectorRef) {
+	constructor(private http: HttpClient, public dataService1: BackendService, private changeDetectorRefs: ChangeDetectorRef) {
 		this.dataService = dataService1;
 	}
 

@@ -1,7 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Item } from '../../model/Item';
 import { Order } from '../../model/Order';
-import { DataService } from '../../DataService';
+import { BackendService } from '../../BackendService';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTable, MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,71 +21,27 @@ import { MutableLiveData } from '@martinporto/mutable-live-data';
 
 export class ItemsComponent implements OnInit{
 
-	dataSource: MatTableDataSource<Item>;
-	order: MutableLiveData<Order>;
+	dataSource: Array<Item>;
 	displayedColumns: string[] = ['quantity', 'name', 'totalAmount', 'remove'];
-	@ViewChild(MatTable) table: MatTable<Item>;
-	public dataService: DataService;
+	public backendService: BackendService;
 
-	constructor(private ds: DataService) {
+	constructor(private paramBackendService: BackendService) {
 
-		this.dataService = ds;
-		this.order = new MutableLiveData(Order);
-		this.dataSource = new MatTableDataSource<Item>();
+		this.backendService = paramBackendService;
+		this.dataSource = new Array<Item>();
 	};
 
 	ngOnInit() {
 
-		this.dataService.getOrder().observe((order) => {
-
-			//console.log("getOrder observe", order)
-			
-			this.dataSource.data = [];
-			if (order.getItems().length == 0){
-				this.dataSource.data = [];
-			}
-
+		this.backendService.getOrder().observe((order:Order) => {
+			this.dataSource = [];			
 			order.getItems().forEach((item: Item) => {
-				this.addRow(item);
+				this.dataSource.push(item);
 			});
-			
-			// this.dataSource.data.forEach((item: Item) => {
-			// 	this.removeRow(item, order);
-			// });
-
-			this.table.renderRows();
 		});	
 	}
 
-	private addRow(item: Item): any {
-
-		var b = this.dataSource.data.findIndex((i) => i.getSku() == item.getSku());
-		if (b == -1){
-			this.dataSource.data.push(item);
-		} else {
-			this.dataSource.data[b].setQuantity(item.getQuantity());
-			this.dataSource.data[b].setTotalAmount(item.getTotalAmount());
-		}
-	}
-
-	private removeRow(item: Item, order:Order): any {
-
-		var b = order.getItems().findIndex((i) => i.getSku() == item.getSku());
-		console.log("b", b)
-		if (b == -1){
-			//this.dataSource.data.shift(item);
-		
-		}
-	}
-
-	
-	public deleteItem(sku:number): any {
-		
-		this.dataService.getOrder().getValue().deleteItem(sku)
-			.subscribe(e => {
-				this.dataService.getOrder().postValue(this.dataService.getOrder().getValue());
-			});
-
-			
+	public deleteItem(sku:number): any {		
+		this.backendService.deleteItem(sku);
 	}
 }
