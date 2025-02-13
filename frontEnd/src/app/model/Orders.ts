@@ -47,7 +47,7 @@ export class Orders {
 						this.items.push(order1)
 					});
 				})
-			);
+			)
 	}
 
 	public getTotal(): any {

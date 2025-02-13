@@ -56,7 +56,9 @@ export class OrderComponent implements OnInit {
 		.subscribe(e => {
 			this.createOrder();
 			this.dataService.getOrder().postValue(this.dataService.getOrder().getValue());
-			this.dataService.getOrders().getValue().refresh();
+			this.dataService.getOrders().getValue().refresh().subscribe(e => {
+				console.log(e)
+			});;
 		});
 
 	}
