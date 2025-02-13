@@ -21,7 +21,7 @@ export class Orders {
 	};
 
 	@Injectable()
-	public refresh(): Observable<any> {
+	public refresh(): any {
 
 		console.log("------------refresh-----")
 
@@ -32,10 +32,7 @@ export class Orders {
 			.pipe(
 
 				map((orders: any) => {
-					console.log("data", orders)
-
-
-
+					
 					this.items = [];
 					orders.forEach((order1: any) => {
 

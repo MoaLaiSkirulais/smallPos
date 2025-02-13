@@ -52,6 +52,12 @@ export class DataService {
 		return this.orders;
 	}
 
+	public reloadOrders():any {
+		this.orders.getValue().refresh().subscribe(()=>{
+			this.orders.postValue(this.orders.getValue());
+		});
+	}
+
 	public getCatalog(): Catalog {
 		return this.catalog;
 	}

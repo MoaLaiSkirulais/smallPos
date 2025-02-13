@@ -49,13 +49,13 @@ export class OrdersComponent {
 
 	};
 
-	public do(){
-		this.dataService.getOrders().getValue().refresh().subscribe(
-			(e)=>{console.log(e)
+	// public do(){
+	// 	this.dataService.getOrders().getValue().refresh().subscribe(
+	// 		(e)=>{console.log(e)
 
-				this.dataService.getOrders().postValue(this.dataService.getOrders().getValue());
-			});
-	}
+	// 			this.dataService.getOrders().postValue(this.dataService.getOrders().getValue());
+	// 		});
+	// }
 
 
 }
