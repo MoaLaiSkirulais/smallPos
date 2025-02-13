@@ -16,7 +16,7 @@ class Afip {
 			console.log(result);
 			return result;
 		}
-
+ 
 		//const afip = new AfipSdk({ CUIT: 20409378472 });
 
 		// Usuario para ingresar a AFIP.

@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection, isDevMode } from '@angular/core';
 import { provideRouter, Routes } from '@angular/router';
 import { provideHttpClient } from "@angular/common/http";
 import { AppComponent } from "./components/model/app.component";
@@ -6,6 +6,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ItemsComponent } from './components/model/items.component';
 import { routes } from './app.routes';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { provideServiceWorker } from '@angular/service-worker';
 
 export const appConfig: ApplicationConfig = {
 	providers: [
@@ -16,7 +17,10 @@ export const appConfig: ApplicationConfig = {
 		provideHttpClient(),
 		provideAnimationsAsync(),
 		provideAnimationsAsync(),
-		{ provide: LocationStrategy, useClass: HashLocationStrategy }
+		{ provide: LocationStrategy, useClass: HashLocationStrategy }, provideServiceWorker('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            registrationStrategy: 'registerWhenStable:30000'
+          })
 	]
 
 };

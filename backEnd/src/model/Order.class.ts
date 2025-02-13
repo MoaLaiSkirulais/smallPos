@@ -131,30 +131,35 @@ class Order {
 
 	public async close(order: Order, company: Company) {
 
-		const device = new Network('172.22.107.201', 9100); //m30iii
-		//const device = new Network('192.168.1.10', 9100); //m30iii
-		var printer: TmPrinter = new TmPrinter(device, {
-			encoding: "GB18030"
-		});
-
 		if (company.getEInvoice()) {
 			var afip = new Afip();
 			var res = await afip.invoice(order);
 			order.setCae(res.CAE);
 		};
 
-		var app:App = App.get();
+		var app: App = App.get();
 		app.orders.add(this);
+
+		/* print */
+		//this.print(order);
 
 		/* save */
 		var database = new AppDatabase();
 		database.addOrder(order);
+	};
 
-		/* print */
+	private print(order: Order) {
+
+		const device = new Network('172.22.107.201', 9100); //m30iii
+		//const device = new Network('192.168.1.10', 9100); //m30iii
+		var printer: TmPrinter = new TmPrinter(device, {
+			encoding: "GB18030"
+		});
+
 		device.open((error) => {
 
 			console.log(error);
-			if (error){
+			if (error) {
 				return;
 			}
 
@@ -213,7 +218,7 @@ class Order {
 			printer.cut();
 			printer.close();
 		});
-	};
+	}
 
 }
 

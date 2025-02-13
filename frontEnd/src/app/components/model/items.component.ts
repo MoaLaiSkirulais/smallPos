@@ -38,8 +38,9 @@ export class ItemsComponent implements OnInit{
 
 		this.dataService.getOrder().observe((order) => {
 
-			console.log("getOrder observe", order)
-
+			//console.log("getOrder observe", order)
+			
+			this.dataSource.data = [];
 			if (order.getItems().length == 0){
 				this.dataSource.data = [];
 			}
@@ -48,9 +49,9 @@ export class ItemsComponent implements OnInit{
 				this.addRow(item);
 			});
 			
-			this.dataSource.data.forEach((item: Item) => {
-				this.removeRow(item, order);
-			});
+			// this.dataSource.data.forEach((item: Item) => {
+			// 	this.removeRow(item, order);
+			// });
 
 			this.table.renderRows();
 		});	
@@ -59,7 +60,6 @@ export class ItemsComponent implements OnInit{
 	private addRow(item: Item): any {
 
 		var b = this.dataSource.data.findIndex((i) => i.getSku() == item.getSku());
-		console.log("b", b)
 		if (b == -1){
 			this.dataSource.data.push(item);
 		} else {

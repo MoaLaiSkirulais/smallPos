@@ -88,8 +88,6 @@ class AppDatabase {
 			var command: string = "SELECT * FROM totals2";
 			db.all(command, [], (err, rows: []) => {
 
-				console.log("rows", rows)
-
 				var t: Array<any> = [];
 				rows.forEach((row: any) => {
 					t.push({ "date": row.range, "total": row.total });
@@ -111,7 +109,6 @@ class AppDatabase {
 
 				var t: Array<any> = [];
 				rows.forEach((row: any) => {
-					console.log("row", row)
 					t.push({ "creationDate": row.creationDate, "totalAmount": row.totalAmount });
 				});
 
