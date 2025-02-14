@@ -1,25 +1,25 @@
 import { Component, ViewChild } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Order } from '../../model/Order';
-import { DataService } from '../../DataService';
+import { BackendService } from '../../BackendService';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CurrencyPipe } from '@angular/common';
 import { AppSettings } from '../../model/AppSettings';
 import { MatTable, MatTableModule, MatTableDataSource } from '@angular/material/table';
-import { Orders } from '../../model/Orders';
+import { OrdersManager } from '../../model/OrdersManager';
 import { MomentModule } from 'ngx-moment';
 import { MutableLiveData } from '@martinporto/mutable-live-data';
 
 @Component({
-	
+
 	selector: 'app-orders',
 	standalone: true,
 	imports: [MatSlideToggleModule, MatCardModule, CurrencyPipe, MatTableModule, MomentModule],
 	templateUrl: '../layout/orders.component.html',
 	styleUrl: '../style/orders.component.css'
-}) 
+})
 
 export class OrdersComponent {
 
@@ -27,35 +27,25 @@ export class OrdersComponent {
 	orders: MutableLiveData<Order>;
 	displayedColumns: string[] = ['date', 'totalAmount', 'totalItems'];
 	@ViewChild(MatTable) table: MatTable<Order>;
-	public dataService: DataService
+	public backendService: BackendService
 
-	constructor(private http: HttpClient, private ds: DataService) {
+	constructor(private http: HttpClient, private paramBackendService: BackendService) {
 
-		this.dataService = ds;
+		this.backendService = paramBackendService;
 		this.orders = new MutableLiveData(Order);
 		this.dataSource = new MatTableDataSource<Order>();
 
-		this.dataService.getOrders().observe((order) => {
+		this.backendService.getOrders().observe((order) => {
 
 			console.log("order", order)
 			this.dataSource.data = []
 
-			console.log("getOrders observe", order)			
-			order.getItems().forEach((item: Order) => {
+			console.log("getOrders observe", order)
+			order.getOrders().forEach((item: Order) => {
 				this.dataSource.data.push(item);
 			});
 			this.table.renderRows();
-		});	
+		});
 
 	};
-
-	// public do(){
-	// 	this.dataService.getOrders().getValue().refresh().subscribe(
-	// 		(e)=>{console.log(e)
-
-	// 			this.dataService.getOrders().postValue(this.dataService.getOrders().getValue());
-	// 		});
-	// }
-
-
 }
