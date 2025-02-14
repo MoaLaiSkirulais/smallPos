@@ -1,41 +1,49 @@
-<div class="example-container">
-	<div class="table-container mat-elevation-z8">
-		<table mat-table [dataSource]="dataService.getCatalog().getProducts()" 
-		matSort matSortActive="name" matSortDisableClear matSortDirection="desc"
-		>
+<mat-card appearance="outlined">
 
-			<ng-container matColumnDef="name">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Product</th>
-				<td mat-cell *matCellDef="let product">
-					{{product.getName()}}
-				</td>
-			</ng-container>
+	<mat-card-header>
+		<mat-card-title style="color: black;">Products</mat-card-title>
+	</mat-card-header>
 
-			<ng-container matColumnDef="description">
-				<th mat-header-cell *matHeaderCellDef>Detail</th>
-				<td mat-cell *matCellDef="let product">
-					{{product.getDescription()}}
-				</td>
-			</ng-container>
+	<mat-card-content>
+		<div class="table-container">
+			<table mat-table [dataSource]="dataService.getCatalog().getProducts()" matSort
+				matSortActive="name" matSortDisableClear matSortDirection="desc">
 
-			<ng-container matColumnDef="price">
-				<th mat-header-cell *matHeaderCellDef>Price</th>
-				<td mat-cell *matCellDef="let product">
-					{{product.getPrice() | currency}}
-				</td>
-			</ng-container>
+				<ng-container matColumnDef="name">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Product</th>
+					<td mat-cell *matCellDef="let product">
+						{{product.getName()}}
+					</td>
+				</ng-container>
 
-			<ng-container matColumnDef="add">
-				<th mat-header-cell *matHeaderCellDef></th>
-				<td mat-cell *matCellDef="let product">
-					<button mat-fab (click)="addItem(product.getSku())">
-						<mat-icon>add</mat-icon>
-					</button>
-				</td>
-			</ng-container>
+				<ng-container matColumnDef="description">
+					<th mat-header-cell *matHeaderCellDef>Detail</th>
+					<td mat-cell *matCellDef="let product">
+						{{product.getDescription()}}
+					</td>
+				</ng-container>
 
-			<tr mat-header-row *matHeaderRowDef="displayedColumns sticky:true" ></tr>
-			<tr mat-row (click)="clickHandler(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
-		</table>
-	</div>
-</div>
+				<ng-container matColumnDef="price">
+					<th mat-header-cell *matHeaderCellDef>Price</th>
+					<td mat-cell *matCellDef="let product">
+						{{product.getPrice() | currency}}
+					</td>
+				</ng-container>
+
+				<ng-container matColumnDef="add">
+					<th mat-header-cell *matHeaderCellDef></th>
+					<td mat-cell *matCellDef="let product">
+						<button mat-fab (click)="addItem(product.getSku())">
+							<mat-icon>add</mat-icon>
+						</button>
+					</td>
+				</ng-container>
+
+				<tr mat-header-row *matHeaderRowDef="displayedColumns sticky:true"></tr>
+				<tr mat-row (click)="clickHandler(row)"
+					*matRowDef="let row; columns: displayedColumns;"></tr>
+			</table>
+		</div>
+	</mat-card-content>
+</mat-card>
+

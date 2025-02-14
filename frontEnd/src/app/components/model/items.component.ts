@@ -9,11 +9,12 @@ import { CurrencyPipe } from '@angular/common';
 import { rowsAnimation } from "../animations/rowsAnimation.component";
 import { fadeOut, blub } from "../animations/rowsAnimation2.component";
 import { MutableLiveData } from '@martinporto/mutable-live-data';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
 	selector: 'app-items',
 	standalone: true,
-	imports: [MatGridListModule, MatTableModule,  MatIconModule, CurrencyPipe],
+	imports: [MatGridListModule, MatTableModule,  MatIconModule, CurrencyPipe, MatCardModule],
 	animations: [rowsAnimation, fadeOut, blub ],
 	templateUrl: '../layout/items.component.html',
 	styleUrl: '../style/items.component.css',

@@ -16,7 +16,7 @@ import { MutableLiveData } from '@martinporto/mutable-live-data';
 
 	selector: 'app-orders',
 	standalone: true,
-	imports: [MatSlideToggleModule, MatCardModule, CurrencyPipe, MatTableModule, MomentModule],
+	imports: [MatSlideToggleModule, MatCardModule, CurrencyPipe, MatTableModule, MomentModule, MatCardModule],
 	templateUrl: '../layout/orders.component.html',
 	styleUrl: '../style/orders.component.css'
 })

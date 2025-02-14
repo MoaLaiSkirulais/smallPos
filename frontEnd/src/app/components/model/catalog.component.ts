@@ -10,11 +10,13 @@ import { MatIconModule } from '@angular/material/icon'
 import { CurrencyPipe } from '@angular/common';
 import {MatSort, MatSortModule, SortDirection} from '@angular/material/sort';
 import { A } from '@angular/cdk/keycodes';
+import {MatCardModule} from '@angular/material/card';
+
 
 @Component({
 	selector: 'app-catalog',
 	standalone: true,
-	imports: [MatGridListModule, MatTableModule,  MatIconModule, CurrencyPipe, MatSortModule],
+	imports: [MatGridListModule, MatTableModule,  MatIconModule, CurrencyPipe, MatSortModule, MatCardModule],
 	templateUrl: '../layout/catalog.component.html',
 	styleUrl: '../style/catalog.component.css'
 })

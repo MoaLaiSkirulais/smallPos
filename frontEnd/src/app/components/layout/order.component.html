@@ -1,26 +1,23 @@
-<div class="table-container mat-elevation-z8">
+<mat-card appearance="outlined">
+	<mat-card-header>
+		<mat-card-title></mat-card-title>
+		<mat-card-subtitle>
+			<h1>Total {{ getOrder().getTotalAmount() | currency}} </h1>
+			<h3> Items {{ getOrder().getTotalItems() }} </h3>
+		</mat-card-subtitle>
+	</mat-card-header>
 
-	<mat-card>
-		<mat-card-header>
-			<mat-card-title></mat-card-title>
-			<mat-card-subtitle>
-				<h1>Total {{ getOrder().getTotalAmount() | currency}} </h1>
-				<h3> Items {{ getOrder().getTotalItems() }} </h3>
-			</mat-card-subtitle>
-		</mat-card-header>
+	<mat-card-content></mat-card-content>
 
-		<mat-card-content></mat-card-content>
+	<mat-card-actions>
+		<button mat-raised-button (click)="payOrder()">
+			<mat-icon>payment</mat-icon>
+			Pagar
+		</button>
 
-		<mat-card-actions>
-			<button mat-raised-button (click)="payOrder()">
-				<mat-icon>payment</mat-icon>
-				Pagar
-			</button>
-
-			<button mat-raised-button (click)="createOrder()">
-				Nueva
-				<mat-icon>fiber_new</mat-icon>
-			</button>
-		</mat-card-actions>
-	</mat-card>
-</div>
+		<button mat-raised-button (click)="createOrder()">
+			Nueva
+			<mat-icon>fiber_new</mat-icon>
+		</button>
+	</mat-card-actions>
+</mat-card>

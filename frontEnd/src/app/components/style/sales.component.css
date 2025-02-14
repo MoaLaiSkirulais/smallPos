@@ -1,6 +1,8 @@
 .wrapper {
 	display: grid;
 	color: #444;
+	min-width: 0;
+	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
 .box {
@@ -15,12 +17,10 @@
 
 .b {
 	grid-column: 2;
-	grid-row: 1;
 }
 
 .c {
 	grid-column: 2;
-	grid-row: 2;
 }
 .d {
 	grid-column: 3;
