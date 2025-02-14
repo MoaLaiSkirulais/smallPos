@@ -1,6 +1,7 @@
 import { Database } from 'sqlite3';
 import Order from './Order.class';
-const db = new Database('./src/data/database/db.sqlite');
+// const db = new Database('./src/data/database/db.sqlite');
+const db = new Database('./dist/server/db.sqlite');
 
 class AppDatabase {
 
