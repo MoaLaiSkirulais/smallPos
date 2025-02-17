@@ -19,10 +19,10 @@ export class TotalsComponent {
 
 	displayedColumns: string[] = ['date', 'total'];
 	@ViewChild(MatTable) table: MatTable<Totals>;
-	public dataService: BackendService
+	public backendService: BackendService
 
-	constructor(private http: HttpClient, private dataService1: BackendService) {
-		this.dataService = dataService1;
+	constructor(private http: HttpClient, private paramBackendService: BackendService) {
+		this.backendService = paramBackendService;
 	};
 
 

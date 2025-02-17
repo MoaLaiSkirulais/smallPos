@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CurrencyPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -36,8 +37,10 @@ export class OrderComponent {
 
 	public payOrder(): any {
 
-		this.backendService.payOrder();
-		this.createOrder();
+		this.backendService.payOrder().subscribe(() => {
+			this.createOrder();
+		});
+		
 	}
 
 }

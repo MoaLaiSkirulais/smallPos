@@ -51,7 +51,8 @@ app.delete('/order/items', (req: Request, res: Response) => {
 });
 
 app.get('/order/close', async (req: Request, res: Response) => {
-	await order.close(order, company);
+	//console.log("order close", order)
+	await order.close(company);
 	// res.status(200).json([order.getCae()]);
 	//order = new Order();
 	res.status(200).json(order.get());

@@ -111,6 +111,7 @@ class Order {
 			total = total + item.getTotalAmount();
 		}
 		this.totalAmount = total;
+		console.log("[addItem] totalAmount:" + this.totalAmount + " id:", this.id);
 	}
 
 	public deleteItem(sku: string) {
@@ -129,12 +130,14 @@ class Order {
 		this.totalAmount = total;
 	}
 
-	public async close(order: Order, company: Company) {
+	public async close(company: Company) {
 
+
+		console.log("[close] totalAmount:" + this.totalAmount + " id:", this.id);
 		if (company.getEInvoice()) {
 			var afip = new Afip();
-			var res = await afip.invoice(order);
-			order.setCae(res.CAE);
+			var res = await afip.invoice(this);
+			this.setCae(res.CAE);
 		};
 
 		var app: App = App.get();
@@ -145,7 +148,7 @@ class Order {
 
 		/* save */
 		var database = new AppDatabase();
-		database.addOrder(order);
+		database.addOrder(this);
 	};
 
 	private print(order: Order) {

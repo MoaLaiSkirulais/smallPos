@@ -1,7 +1,6 @@
 import { Database } from 'sqlite3';
 import Order from './Order.class';
-// const db = new Database('./src/data/database/db.sqlite');
-const db = new Database('./dist/server/db.sqlite');
+const database = new Database('./dist/server/samllPos-db.sqlite');
 
 class AppDatabase {
 
@@ -21,14 +20,14 @@ class AppDatabase {
 			totalItems REAL NOT NULL
 		    )`;
 
-		db.exec(command);
+		database.exec(command);
 
 		var command: string = `
 			CREATE VIEW IF NOT EXISTS totals AS 
 			SELECT sum(totalAmount) AS total 
 			FROM orders;`;
 
-		db.exec(command);
+		database.exec(command);
 
 		var command: string = `
 
@@ -50,7 +49,7 @@ class AppDatabase {
 				FROM orders
 				GROUP BY strftime('%d', creationDate)`;
 
-		db.exec(command);
+		database.exec(command);
 	}
 
 	private formatDate(date: Date): String {
@@ -62,7 +61,6 @@ class AppDatabase {
 			+ ":" + date.getMinutes()
 			+ ":" + date.getSeconds();
 
-		console.log("ddd", ddd);
 		return ddd;
 
 	};
@@ -70,16 +68,15 @@ class AppDatabase {
 	public addOrder(order: Order) {
 
 		var command: string =
-			"INSERT OR REPLACE INTO orders "
-			+ "(id, creationDate, totalAmount, totalItems)"
+			"INSERT INTO orders "
+			+ "(creationDate, totalAmount, totalItems)"
 			+ "VALUES ("
-			+ order.getId() + ", "
 			+ "'" + this.formatDate(order.getCreationDate()) + "', " //'2007-01-01 10:00:00'
 			+ order.getTotalAmount() + ", "
 			+ order.getTotalItems()
 			+ ")";
-		console.log(command);
-		db.exec(command);
+		//console.log(command);
+		database.exec(command);
 	}
 
 	public async getTotals() {
@@ -87,7 +84,7 @@ class AppDatabase {
 		return await new Promise((resolve, reject) => {
 
 			var command: string = "SELECT * FROM totals2";
-			db.all(command, [], (err, rows: []) => {
+			database.all(command, [], (err, rows: []) => {
 
 				var t: Array<any> = [];
 				rows.forEach((row: any) => {
@@ -98,13 +95,13 @@ class AppDatabase {
 			})
 		});
 	};
-	
+
 	public async getOrders() {
 
 		return await new Promise((resolve, reject) => {
 
 			var command: string = "SELECT * FROM orders";
-			db.all(command, [], (err, rows: []) => {
+			database.all(command, [], (err, rows: []) => {
 
 				//console.log("rows", rows)
 

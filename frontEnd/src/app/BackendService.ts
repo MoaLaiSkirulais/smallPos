@@ -72,7 +72,7 @@ export class BackendService {
 
 	public payOrder(): any {
 
-		this.order.getValue().pay()
+		return this.order.getValue().pay()
 			.subscribe(e => {
 				this.order.postValue(this.order.getValue());
 				this.reloadOrders();

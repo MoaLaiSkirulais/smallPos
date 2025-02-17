@@ -6,7 +6,7 @@
 
 	<mat-card-content>
 
-		<table mat-table [dataSource]="dataService.getTotals().getItems()">
+		<table mat-table [dataSource]="backendService.getTotals().getItems()">
 
 			<ng-container matColumnDef="date">
 				<th mat-header-cell *matHeaderCellDef>date</th>
