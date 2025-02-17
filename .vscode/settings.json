@@ -1,9 +1,5 @@
 {
 	// The following will hide the js and map files in the editor
-	"files.exclude": {
-		
-
-	},
 	"editor.fontFamily": "Consolas",
 	"editor.fontSize": 14,
 	"editor.tabCompletion": "on",
@@ -12,14 +8,13 @@
 	"editor.suggestLineHeight": 0,
 	"editor.lineHeight": 27,
 	"editor.letterSpacing": 0.3,
-
 	"separators.classes.borderStyle": "solid",
 	"separators.constructors.borderStyle": "solid",
 	"separators.methods.borderStyle": "solid",
-	"editor.detectIndentation": true,
+	"editor.detectIndentation": false,
 	"workbench.colorCustomizations": {
 		"sideBar.background": "#ffffff",
-		"list.hoverBackground": "#41a6d9",		
+		"list.hoverBackground": "#41a6d9",
 		"separators.classes.borderColor": "#C0C0C0",
 		"separators.constructors.borderColor": "#C0C0C0",
 		"separators.enums.borderColor": "#C0C0C0",
@@ -28,17 +23,15 @@
 		"separators.methods.borderColor": "#C0C0C0",
 		"separators.namespaces.borderColor": "#C0C0C0",
 		"separators.structs.borderColor": "#C0C0C0",
-
 	},
 	"separators.functions.ignoreCallbackInline": true,
 	"separators.classes.borderWidth": 1,
-	"separators.aboveComments.rules": [
-
-	],
+	"separators.aboveComments.rules": [],
 	"editor.fontWeight": "370",
 	"editor.fontLigatures": false,
 	"editor.tokenColorCustomizations": {
-		"textMateRules": [{
+		"textMateRules": [
+			{
 				"scope": [
 					"constant",
 					"constant.character",
@@ -140,7 +133,8 @@
 				"settings": {
 					"fontStyle": ""
 				}
-			}, {
+			},
+			{
 				"scope": [
 					"comment",
 					"punctuation.definition.comment"
@@ -154,5 +148,7 @@
 	"angular.enable-strict-mode-prompt": false,
 	"workbench.list.openMode": "doubleClick",
 	"editor.codeActionsOnSave": {},
-	"editor.indentSize": "tabSize"
+	"editor.indentSize": "tabSize",
+	"workbench.tree.indent": 20,
+	"prettyxml.settings.indentSpaceLength": 8
 }

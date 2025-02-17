@@ -2,29 +2,14 @@
 	display: grid;
 	color: #444;
 	min-width: 0;
-	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+	grid-template:
+		"a b c" auto/
+		1fr 1fr 1fr;
 }
 
 .box {
 	color: #fff;
 	padding: 20px;
-}
-
-.a {
-	grid-column: 1;
-	grid-row: 1 / 5;
-}
-
-.b {
-	grid-column: 2;
-}
-
-.c {
-	grid-column: 2;
-}
-.d {
-	grid-column: 3;
-	grid-row: 1;
 }
 
 #wrapper {
