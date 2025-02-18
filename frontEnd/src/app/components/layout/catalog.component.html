@@ -6,7 +6,7 @@
 
 	<mat-card-content>
 		<div class="table-container">
-			<table mat-table [dataSource]="dataService.getCatalog().getProducts()" matSort
+			<table mat-table [dataSource]="backendService.getCatalog().getProducts()" matSort
 				matSortActive="name" matSortDisableClear matSortDirection="desc">
 
 				<ng-container matColumnDef="name">
@@ -33,14 +33,14 @@
 				<ng-container matColumnDef="add">
 					<th mat-header-cell *matHeaderCellDef></th>
 					<td mat-cell *matCellDef="let product">
-						<button mat-fab (click)="addItem(product.getSku())">
+						<button mat-fab (click)="this.backendService.addItem(product.getSku())">
 							<mat-icon>add</mat-icon>
 						</button>
 					</td>
 				</ng-container>
 
 				<tr mat-header-row *matHeaderRowDef="displayedColumns sticky:true"></tr>
-				<tr mat-row (click)="clickHandler(row)"
+				<tr mat-row (click)="this.backendService.addItem(row.getSku())"
 					*matRowDef="let row; columns: displayedColumns;"></tr>
 			</table>
 		</div>

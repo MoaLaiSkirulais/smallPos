@@ -37,10 +37,7 @@ export class OrdersComponent {
 
 		this.backendService.getOrders().observe((order) => {
 
-			console.log("order", order)
 			this.dataSource.data = []
-
-			console.log("getOrders observe", order)
 			order.getOrders().forEach((item: Order) => {
 				this.dataSource.data.push(item);
 			});

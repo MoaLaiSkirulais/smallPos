@@ -31,16 +31,4 @@ export class OrderComponent {
 		return this.backendService.getOrder().getValue();
 	}
 
-	public createOrder(): any {
-		this.backendService.createOrder();
-	}
-
-	public payOrder(): any {
-
-		this.backendService.payOrder().subscribe(() => {
-			this.createOrder();
-		});
-		
-	}
-
 }

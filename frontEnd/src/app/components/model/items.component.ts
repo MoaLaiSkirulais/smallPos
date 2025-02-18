@@ -14,35 +14,19 @@ import { MatCardModule } from '@angular/material/card';
 @Component({
 	selector: 'app-items',
 	standalone: true,
-	imports: [MatGridListModule, MatTableModule,  MatIconModule, CurrencyPipe, MatCardModule],
-	animations: [rowsAnimation, fadeOut, blub ],
+	imports: [MatGridListModule, MatTableModule, MatIconModule, CurrencyPipe, MatCardModule],
+	animations: [rowsAnimation, fadeOut, blub],
 	templateUrl: '../layout/items.component.html',
 	styleUrl: '../style/items.component.css',
 })
 
-export class ItemsComponent implements OnInit{
+export class ItemsComponent {
 
-	dataSource: Array<Item>;
 	displayedColumns: string[] = ['quantity', 'name', 'totalAmount', 'remove'];
 	public backendService: BackendService;
 
 	constructor(private paramBackendService: BackendService) {
-
 		this.backendService = paramBackendService;
-		this.dataSource = new Array<Item>();
 	};
 
-	ngOnInit() {
-
-		this.backendService.getOrder().observe((order:Order) => {
-			this.dataSource = [];			
-			order.getItems().forEach((item: Item) => {
-				this.dataSource.push(item);
-			});
-		});	
-	}
-
-	public deleteItem(sku:number): any {		
-		this.backendService.deleteItem(sku);
-	}
 }

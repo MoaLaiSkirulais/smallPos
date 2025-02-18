@@ -4,7 +4,7 @@ import { Order } from './model/Order';
 import { Catalog } from './model/Catalog';
 import { Company } from "./model/Company";
 import { OrdersManager } from './model/OrdersManager';
-import { Totals } from './model/Totals';
+import { Stats } from './model/Stats';
 import { MutableLiveData } from '@martinporto/mutable-live-data';
 
 @Injectable({
@@ -17,23 +17,16 @@ export class BackendService {
 	private catalog: Catalog;
 	private company: Company;
 	private orders: MutableLiveData<OrdersManager>;
-	private totals: Totals;
+	private stats: Stats;
 
 	constructor(private http: HttpClient) {
 
 		this.order = new MutableLiveData(Order);
-		this.order.postValue(new Order());
-
 		this.catalog = new Catalog(this.http);
 		this.company = new Company(this.http);
 		this.orders = new MutableLiveData(OrdersManager);
-		this.totals = new Totals(this.http);
+		this.stats = new Stats(this.http);
 		this.order.create();
-	}
-
-	public addItem(sku: number) {
-		//this.order.addItem(sku);
-		//this.order.ob.subscribe(x => console.log("ob", x));
 	}
 
 	public reloadCatalog() {
@@ -44,15 +37,17 @@ export class BackendService {
 		return this.order;
 	}
 
-	// public getOrder2(): Order {
-	// 	return this.order;
-	// }
+	public addItem(sku: number): any {
+
+		var order: Order = this.order.getValue();
+		order.addItem(sku).subscribe(e => { this.order.postValue(order) });
+	}
 
 	public getOrders(): MutableLiveData<OrdersManager> {
 		return this.orders;
 	}
 
-	public reloadOrders(): any {
+	public loadOrders(): any {
 		this.orders.getValue().reload().subscribe(() => {
 			this.orders.postValue(this.orders.getValue());
 		});
@@ -66,16 +61,22 @@ export class BackendService {
 		return this.company;
 	}
 
-	public getTotals(): Totals {
-		return this.totals;
+	public getSales(): any {
+		return this.stats.getSales();
+	}
+	
+	public loadSales(): any {
+		this.stats.loadSales();
 	}
 
 	public payOrder(): any {
 
 		return this.order.getValue().pay()
-			.subscribe(e => {
+			.subscribe(() => {
 				this.order.postValue(this.order.getValue());
-				this.reloadOrders();
+				this.loadOrders();
+				this.loadSales();
+				this.createOrder();
 			});
 	}
 

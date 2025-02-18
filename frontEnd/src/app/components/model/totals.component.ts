@@ -5,7 +5,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { CurrencyPipe } from '@angular/common';
 import { MatTable, MatTableModule } from '@angular/material/table';
-import { Totals } from '../../model/Totals';
+import { Stats } from '../../model/Stats';
 
 @Component({
 	selector: 'app-totals',
@@ -18,12 +18,11 @@ import { Totals } from '../../model/Totals';
 export class TotalsComponent {
 
 	displayedColumns: string[] = ['date', 'total'];
-	@ViewChild(MatTable) table: MatTable<Totals>;
+	@ViewChild(MatTable) table: MatTable<Stats>;
 	public backendService: BackendService
 
 	constructor(private http: HttpClient, private paramBackendService: BackendService) {
 		this.backendService = paramBackendService;
+		this.backendService.loadSales();
 	};
-
-
 }

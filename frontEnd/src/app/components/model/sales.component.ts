@@ -13,8 +13,7 @@ import { TotalsComponent } from './totals.component';
 	styleUrl: '../style/sales.component.css'
 })
 
-export class SalesComponent  {
-	
-	constructor() {
-	};
+export class SalesComponent {
+
+	constructor() { };
 }

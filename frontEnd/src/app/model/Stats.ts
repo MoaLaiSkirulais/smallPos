@@ -22,27 +22,24 @@ export class Total {
 	};
 }
 
-export class Totals {
+export class Stats {
 
-	private items: Array<Total> = [];
+	private sales: Array<Total> = [];
 
 	constructor(private http: HttpClient) {
-		this.getTotal();
 	};
 
-	public getItems(): Array<Total> {
-		return this.items;
+	public getSales(): Array<Total> {
+		return this.sales;
 	};	
 
-	public getTotal(): any {
+	public loadSales(): any {
 
 		this.http.get(AppSettings.API_ENDPOINT + '/orders/totals').subscribe((data: any) => {
-			this.items = [];
+			this.sales = [];
 			data.forEach((total: any) => {
-				this.items.push(new Total(total.date, total.total));
+				this.sales.push(new Total(total.date, total.total));
 			});
-
 		});
 	}
-
 }

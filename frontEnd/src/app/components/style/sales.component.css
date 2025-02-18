@@ -4,7 +4,7 @@
 	min-width: 0;
 	grid-template:
 		"a b c" auto/
-		1fr 1fr 1fr;
+		1fr 1fr .5fr;
 }
 
 .box {
@@ -13,5 +13,10 @@
 }
 
 #wrapper {
-	margin-top: 70px;
+	margin-top: 60px;
+}
+
+.c {
+	background-color: #1dc7f1;
+	padding: 20px;
 }

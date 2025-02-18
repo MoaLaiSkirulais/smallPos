@@ -10,12 +10,12 @@
 	<mat-card-content></mat-card-content>
 
 	<mat-card-actions>
-		<button mat-raised-button (click)="payOrder()">
+		<button mat-raised-button (click)="this.backendService.payOrder()">
 			<mat-icon>payment</mat-icon>
 			Pagar
 		</button>
 
-		<button mat-raised-button (click)="createOrder()">
+		<button mat-raised-button (click)="this.backendService.createOrder()">
 			Nueva
 			<mat-icon>fiber_new</mat-icon>
 		</button>

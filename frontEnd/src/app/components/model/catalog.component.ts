@@ -27,21 +27,10 @@ export class CatalogComponent {
 	displayedColumns: string[] = ['name', 'price', 'add'];
 	@ViewChild(MatTable) table: MatTable<Product>;
 	@ViewChild(MatSort) sort: MatSort;
-	public dataService: BackendService
+	public backendService: BackendService
 
-	constructor(private http: HttpClient, public dataService1: BackendService, private changeDetectorRefs: ChangeDetectorRef) {
-		this.dataService = dataService1;
-	}
-
-	public addItem(sku: number): any {
-		this.dataService.getOrder().getValue().addItem(sku)
-			.subscribe(e => {
-				this.dataService.getOrder().postValue(this.dataService.getOrder().getValue());
-			});
-	}
-
-	public clickHandler(product: Product): any {
-		this.addItem(product.getSku())
+	constructor(public paramBackendService: BackendService) {
+		this.backendService = paramBackendService;
 	}
 }
 
