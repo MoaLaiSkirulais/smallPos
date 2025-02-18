@@ -31,21 +31,21 @@ class AppDatabase {
 
 		var command: string = `
 
-			CREATE VIEW  IF NOT EXISTS totals2 AS 
+			CREATE VIEW  IF NOT EXISTS vwSales AS 
 
-				SELECT strftime('%Y', creationDate) AS date, SUM(totalAmount) AS total, 'ytd' AS range
+				SELECT strftime('%Y', creationDate) AS date, SUM(totalAmount) AS total, 'ytd' AS range, 'Year' AS label
 				FROM orders
 				GROUP BY strftime('%Y', creationDate)
 								
 				UNION 
 
-				SELECT strftime('%m', creationDate) AS date, SUM(totalAmount) AS total, 'mtd' AS range
+				SELECT strftime('%m', creationDate) AS date, SUM(totalAmount) AS total, 'mtd' AS range, 'Month' AS label
 				FROM orders
 				GROUP BY strftime('%m', creationDate)
 
 				UNION 
 
-				SELECT strftime('%d', creationDate) AS date, SUM(totalAmount) AS total, 'dtd' AS range
+				SELECT strftime('%d', creationDate) AS date, SUM(totalAmount) AS total, 'dtd' AS range, 'Today' AS label
 				FROM orders
 				GROUP BY strftime('%d', creationDate)`;
 
@@ -75,7 +75,6 @@ class AppDatabase {
 			+ order.getTotalAmount() + ", "
 			+ order.getTotalItems()
 			+ ")";
-		//console.log(command);
 		database.exec(command);
 	}
 
@@ -83,12 +82,12 @@ class AppDatabase {
 
 		return await new Promise((resolve, reject) => {
 
-			var command: string = "SELECT * FROM totals2";
+			var command: string = "SELECT * FROM vwSales";
 			database.all(command, [], (err, rows: []) => {
 
 				var t: Array<any> = [];
 				rows.forEach((row: any) => {
-					t.push({ "date": row.range, "total": row.total });
+					t.push({ "date": row.range, "total": row.total, "label": row.label });
 				});
 
 				resolve(t);

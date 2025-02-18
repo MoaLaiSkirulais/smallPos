@@ -8,16 +8,16 @@ import { MatTable, MatTableModule } from '@angular/material/table';
 import { Stats } from '../../model/Stats';
 
 @Component({
-	selector: 'app-totals',
+	selector: 'app-stats',
 	standalone: true,
 	imports: [MatSlideToggleModule,  MatCardModule, CurrencyPipe, MatTableModule],
-	templateUrl: '../layout/totals.component.html',
-	styleUrl: '../style/totals.component.css'
+	templateUrl: '../layout/stats.component.html',
+	styleUrl: '../style/stats.component.css'
 })
 
-export class TotalsComponent {
+export class StatsComponent {
 
-	displayedColumns: string[] = ['date', 'total'];
+	displayedColumns: string[] = ['label', 'total'];
 	@ViewChild(MatTable) table: MatTable<Stats>;
 	public backendService: BackendService
 
