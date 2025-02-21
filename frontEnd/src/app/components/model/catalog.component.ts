@@ -23,10 +23,7 @@ import {MatCardModule} from '@angular/material/card';
 
 export class CatalogComponent {
 
-	catalog: Catalog;
 	displayedColumns: string[] = ['name', 'price', 'add'];
-	@ViewChild(MatTable) table: MatTable<Product>;
-	@ViewChild(MatSort) sort: MatSort;
 	public backendService: BackendService
 
 	constructor(public paramBackendService: BackendService) {

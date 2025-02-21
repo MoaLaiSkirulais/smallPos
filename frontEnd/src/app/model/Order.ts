@@ -35,19 +35,7 @@ export class Order {
 
 	public getCreationDate(): Date {
 		return this.creationDate;
-	};
-
-	public setTotalAmount(totalAmount: number): void {
-		this.totalAmount = totalAmount;
-	}
-
-	public setTotalItems(totalItems: number): void {
-		this.totalItems = totalItems;
-	}
-
-	public setCreationDate(date: Date): void {
-		this.creationDate = date;
-	}
+	};	
 
 	public create(): Observable<any> {
 

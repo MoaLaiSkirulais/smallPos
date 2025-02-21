@@ -6,7 +6,7 @@ import { map, tap, Observable } from 'rxjs';
 import { inject, Injectable, runInInjectionContext } from "@angular/core";
 
 @Injectable()
-export class OrdersManager {
+export class Orders {
 
 	private items: Array<any> = [];
 	private http: HttpClient;
@@ -20,10 +20,8 @@ export class OrdersManager {
 		return this.items.reverse();
 	};
 
-	@Injectable()
 	public reload(): any {
 
-		console.log("------------refresh-----")
 		return this.http.get(AppSettings.API_ENDPOINT + '/orders')
 			.pipe(
 				map((orders: any) => {
@@ -35,11 +33,5 @@ export class OrdersManager {
 			)
 	}
 
-	public getTotal(): any {
-
-		this.http.get(AppSettings.API_ENDPOINT + '/orders/totals').subscribe((data: any) => {
-			console.log(data);
-		});
-	}
 
 }

@@ -2,8 +2,8 @@
 	<mat-card-header>
 		<mat-card-title></mat-card-title>
 		<mat-card-subtitle>
-			<h1>Total {{ getOrder().getTotalAmount() | currency}} </h1>
-			<h3> Items {{ getOrder().getTotalItems() }} </h3>
+			<h1>Total {{ this.backendService.getOrder().getTotalAmount() | currency}} </h1>
+			<h3> Items {{ this.backendService.getOrder().getTotalItems() }} </h3>
 		</mat-card-subtitle>
 	</mat-card-header>
 

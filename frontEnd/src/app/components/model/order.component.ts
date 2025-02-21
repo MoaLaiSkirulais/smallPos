@@ -27,8 +27,5 @@ export class OrderComponent {
 		this.backendService = paramBackendService;
 	};
 
-	public getOrder(): Order {
-		return this.backendService.getOrder().getValue();
-	}
 
 }

@@ -8,7 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CurrencyPipe } from '@angular/common';
 import { AppSettings } from '../../model/AppSettings';
 import { MatTable, MatTableModule, MatTableDataSource } from '@angular/material/table';
-import { OrdersManager } from '../../model/OrdersManager';
+import { Orders } from '../../model/Orders';
 import { MomentModule } from 'ngx-moment';
 import { MutableLiveData } from '@martinporto/mutable-live-data';
 
@@ -23,26 +23,11 @@ import { MutableLiveData } from '@martinporto/mutable-live-data';
 
 export class OrdersComponent {
 
-	dataSource: MatTableDataSource<Order>;
-	orders: MutableLiveData<Order>;
 	displayedColumns: string[] = ['date', 'totalAmount', 'totalItems'];
-	@ViewChild(MatTable) table: MatTable<Order>;
 	public backendService: BackendService
 
 	constructor(private http: HttpClient, private paramBackendService: BackendService) {
-
 		this.backendService = paramBackendService;
-		this.orders = new MutableLiveData(Order);
-		this.dataSource = new MatTableDataSource<Order>();
-
-		this.backendService.getOrders().observe((order) => {
-
-			this.dataSource.data = []
-			order.getOrders().forEach((item: Order) => {
-				this.dataSource.data.push(item);
-			});
-			this.table.renderRows();
-		});
-
+		this.backendService.loadOrders();
 	};
 }

@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Order } from './model/Order';
 import { Catalog } from './model/Catalog';
 import { Company } from "./model/Company";
-import { OrdersManager } from './model/OrdersManager';
+import { Orders } from './model/Orders';
 import { Stats } from './model/Stats';
 import { MutableLiveData } from '@martinporto/mutable-live-data';
 
@@ -13,18 +13,18 @@ import { MutableLiveData } from '@martinporto/mutable-live-data';
 
 export class BackendService {
 
-	private order: MutableLiveData<Order>;
+	private order: Order;
 	private catalog: Catalog;
 	private company: Company;
-	private orders: MutableLiveData<OrdersManager>;
+	private orders: Orders;
 	private stats: Stats;
 
 	constructor(private http: HttpClient) {
 
-		this.order = new MutableLiveData(Order);
+		this.order = new Order();
 		this.catalog = new Catalog(this.http);
 		this.company = new Company(this.http);
-		this.orders = new MutableLiveData(OrdersManager);
+		this.orders = new Orders();
 		this.stats = new Stats(this.http);
 		this.order.create();
 	}
@@ -33,24 +33,22 @@ export class BackendService {
 		this.catalog.create()
 	}
 
-	public getOrder(): MutableLiveData<Order> {
+	public getOrder(): Order {
 		return this.order;
 	}
 
 	public addItem(sku: number): any {
 
-		var order: Order = this.order.getValue();
-		order.addItem(sku).subscribe(e => { this.order.postValue(order) });
+		var order: Order = this.order;
+		order.addItem(sku).subscribe(e => { });
 	}
 
-	public getOrders(): MutableLiveData<OrdersManager> {
-		return this.orders;
+	public getOrders(): Array<Order> {
+		return this.orders.getOrders();
 	}
 
 	public loadOrders(): any {
-		this.orders.getValue().reload().subscribe(() => {
-			this.orders.postValue(this.orders.getValue());
-		});
+		this.orders.reload().subscribe(() => { });
 	}
 
 	public getCatalog(): Catalog {
@@ -64,16 +62,15 @@ export class BackendService {
 	public getSales(): any {
 		return this.stats.getSales();
 	}
-	
+
 	public loadSales(): any {
 		this.stats.loadSales();
 	}
 
 	public payOrder(): any {
 
-		return this.order.getValue().pay()
+		return this.order.pay()
 			.subscribe(() => {
-				this.order.postValue(this.order.getValue());
 				this.loadOrders();
 				this.loadSales();
 				this.createOrder();
@@ -82,18 +79,14 @@ export class BackendService {
 
 	public createOrder(): any {
 
-		var order: Order = this.order.getValue();
-		order.create().subscribe(e => { this.order.postValue(order) });
+		var order: Order = this.order;
+		order.create().subscribe(e => { });
 	}
-
-	// public getOrder(): any {
-	// 	this.order.getValue();
-	// }
 
 	public deleteItem(sku: number): any {
 
-		var order: Order = this.order.getValue();
-		order.deleteItem(sku).subscribe(e => { this.order.postValue(order) });
+		var order: Order = this.order;
+		order.deleteItem(sku).subscribe(e => { });
 	}
 
 }
